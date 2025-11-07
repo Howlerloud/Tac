@@ -6,14 +6,12 @@ body {
     height: calc(100vh - 164px);
     color: #555;
     font-family: 'Lato';
-}
-
-.background {
     background: url('/media/4.jpg') no-repeat center center fixed;
     background-size: 100%;
     height: calc(100vh - 164px);
-    width: 100%;
 }
+
+
 
 /* from Bulma */
 .icon {
@@ -55,6 +53,10 @@ body {
 
 .text-black {
     color: #000 !important;
+}
+
+.bg-black {
+    background: black !important
 }
 
 .border-black {
