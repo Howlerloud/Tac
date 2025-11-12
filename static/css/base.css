@@ -55,27 +55,38 @@ body {
     color: #000 !important;
 }
 
-.bg-black {
-    background: black !important
-}
-
 .border-black {
     border: 1px solid black !important;
 }
 
+.bg-black {
+    background: #000 !important;
+}
+
 .overlay {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background: white;
-    z-index: -1;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
 }
 
 a.category-badge > span.badge:hover {
-    background: #000 !important;
-    color: white !important;
+    background: #212529 !important;
+    color: #fff !important;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+.btt-link {
+    cursor: pointer;
 }
 
 
@@ -103,12 +114,13 @@ a.category-badge > span.badge:hover {
     }
 }
 
-@media (min-width: 991px) {
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
     .header-container {
         padding-top: 116px;
     }
 
     body {
-        height: calc(100vh- 116px);
+        height: calc(100vh - 116px);
     }
 }
