@@ -11,9 +11,6 @@ from profiles.models import UserProfile
 from shopbag.contexts import bag_contents
 
 import stripe
-
-
-import stripe
 import json
 
 
