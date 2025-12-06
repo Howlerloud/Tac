@@ -18,6 +18,9 @@ def all_products(request):
     sort = None
     direction = None
 
+    # NEW — detect view type
+    view_type = request.GET.get('view', 'grid')  # default is grid
+
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
@@ -54,6 +57,7 @@ def all_products(request):
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
+        'view_type': view_type,   # <-- NEW
     }
 
     return render(request, 'products/products.html', context)

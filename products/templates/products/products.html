@@ -26,7 +26,7 @@
         <div class="row">
             <div class="product-container col-10 offset-1">
                 <div class="row mt-1 mb-2">
-                    <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                    <div class="col-12 col-md-4 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                         <div class="sort-select-wrapper w-50">
                             <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
@@ -41,7 +41,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6 order-md-first">
+                    <div class="col-12 col-md-4 order-md-first">
                         <p class="text-muted mt-3 text-center text-md-left">
                             {% if search_term or current_categories or current_sorting != 'None_None' %}
                                 <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
@@ -49,7 +49,25 @@
                             {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
                         </p>
                     </div>
+                        <div class="col-12 col-md-4 order-md-first">
+                            {% if request.user.is_superuser %}
+                            <div class="text-center mb-3">
+                                {% if view_type == 'grid' %}
+                                    <a class="btn btn-sm btn-outline-dark"
+                                    href="?{% if request.GET %}{{ request.GET.urlencode|safe }}&{% endif %}view=list">
+                                        Switch to List View
+                                    </a>
+                                {% else %}
+                                    <a class="btn btn-sm btn-outline-dark"
+                                    href="?{% if request.GET %}{{ request.GET.urlencode|safe }}&{% endif %}view=grid">
+                                        Switch to Grid View
+                                    </a>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        </div>
                 </div>
+                {% if view_type == 'grid' %}
                 <div class="row">
                     {% for product in products %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
@@ -69,7 +87,7 @@
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
                                         <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                                            <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
                                             {% if product.category %}
                                             <p class="small mt-1 mb-0">
                                                 <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
@@ -115,6 +133,39 @@
                         {% endif %}
                     {% endfor %}
                 </div>
+                {% else %}
+                    <table class="table table-striped table-bordered mt-3">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Rating</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for product in products %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        {{ product.name }}
+                                    </a>
+                                </td>
+                                <td>{{ product.category.friendly_name }}</td>
+                                <td>${{ product.price }}</td>
+                                <td>{% if product.rating %}{{ product.rating }} / 5{% else %}No Rating{% endif %}</td>
+                                <td>
+                                    {% if request.user.is_superuser %}
+                                        <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
             </div>
         </div>
     </div>
