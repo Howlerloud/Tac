@@ -181,14 +181,20 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Bucket Config
 if 'USE_AWS' in os.environ:
-    AWS_STORAGE_BUCKET_NAME = 'tac-shop-940893129818.herokuapp'
+    AWS_STORAGE_BUCKET_NAME = 'tac-shop-940893129818.herokuappapp'
     AWS_S3_REGION_NAME = 'eu-north-1'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.eu-north-1.amazonaws.com'
+
+    AWS_S3_SIGNATURE_VERSION = "s3v4"
+
+    AWS_S3_CUSTOM_DOMAIN = (
+        f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
+    )
 
     STATICFILES_STORAGE = 'custom_storage.StaticStorage'
     STATICFILES_LOCATION = 'static'
+
     DEFAULT_FILE_STORAGE = 'custom_storage.MediaStorage'
     MEDIAFILES_LOCATION = 'media'
 
