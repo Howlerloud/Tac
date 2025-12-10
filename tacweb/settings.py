@@ -32,9 +32,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
     'localhost',
-    'tac-shop-940893129818.herokuapp.com',
+    '127.0.0.1',
+    '.herokuapp.com',
 ]
 
 
