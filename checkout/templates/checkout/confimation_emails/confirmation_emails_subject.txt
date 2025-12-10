@@ -1,1 +1,1 @@
-Boutique Ado Confirmation for Order Number {{ order.order_number }}
+Tac Order Confirmation - Order {{ order.order_number }}
