@@ -34,7 +34,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    'tac-shop-940893129818.com',
+    'tac-shop-940893129818.herokuapp.com',
 ]
 
 
