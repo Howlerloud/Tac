@@ -181,6 +181,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Bucket Config
 if 'USE_AWS' in os.environ:
+    AWS_S3_OBJECT_PARAMETERS = {
+        'expires': 'Thu, 3 Mar 2050 20:00:00 GMT',
+        'CacheControl': 'max-age=9460800',
+    }
     AWS_STORAGE_BUCKET_NAME = 'tac-shop-940893129818'
     AWS_S3_REGION_NAME = 'eu-north-1'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
