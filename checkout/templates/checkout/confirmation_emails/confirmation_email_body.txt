@@ -1,0 +1,19 @@
+Hi {{ order.full_name }},
+
+Thanks for your order!
+
+Your order number is {{ order.order_number }}.
+Order Date: {{ order.date }}
+Delivery: ${{ order.delivery_cost }}
+Grand Total: ${{ order.grand_total }}
+
+Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
+
+We will send another email when it ships.
+
+Thank you for your order!
+
+Sincerely,
+
+Tac
+
