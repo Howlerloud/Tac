@@ -15,6 +15,7 @@ def webhook(request):
     # Setup
     wh_secret = settings.STRIPE_WH_SECRET
     stripe.api_key = settings.STRIPE_SECRET_KEY
+    stripe.api_version = "2020-08-27"
 
     # get the webhook data and verify its signature
     payload = request.body
