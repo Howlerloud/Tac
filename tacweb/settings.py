@@ -139,8 +139,6 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
@@ -232,11 +230,6 @@ if 'USE_AWS' in os.environ:
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 # Stripe
 
 FREE_DELIVERY_THRESHOLD = 50
@@ -253,9 +246,6 @@ if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'ajhorsesservice@gmail.com'
 else:
-    print("EMAIL_SSL_KEYFILE before:", os.environ.get('EMAIL_SSL_KEYFILE'))
-    print("EMAIL_SSL_CERTFILE before:", os.environ.get('EMAIL_SSL_CERTFILE'))
-    print("EMAIL_HOST_PASSWORD:", os.environ.get('EMAIL_HOST_PASSWORD'))
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
     EMAIL_PORT = 587
