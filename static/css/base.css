@@ -6,12 +6,14 @@ body {
     height: calc(100vh - 164px);
     color: #555;
     font-family: 'Lato';
-    background: url('/media/8.jpg') no-repeat center center fixed;
-    background-size: 100%;
     height: calc(100vh - 164px);
 }
 
-
+.hp-bg {
+    background: url('/media/8.jpg') no-repeat center center fixed;
+    background-size: 100%;
+    background-position: center 20%;
+}
 
 /* from Bulma */
 .icon {
@@ -26,8 +28,21 @@ body {
     text-transform: uppercase;
 }
 
+.base-tac {
+    color: #C89F39;
+}
+
 .main-logo-link {
     width: fit-content;
+}
+
+.head-container {
+    background: linear-gradient(
+        to bottom,
+        #0A2D27 0%,
+        #0A2D27 50%,
+        #13594E 100%
+        );
 }
 
 .shop-now-button {
@@ -55,12 +70,29 @@ body {
     color: #000 !important;
 }
 
+.text-green {
+    color: #0A2D27;
+}
+
+.border-nav {
+    border-radius: 0%;
+    border-style: solid;
+    border-color: #000;
+    border-width: 1px;
+}
+
 .border-black {
     border: 1px solid black !important;
 }
 
-.bg-black {
-    background: #000 !important;
+.bg-gld {
+    background: #C89F39 !important;
+}
+
+.bd-gld {
+    border-color: #C89F39;
+    border-style: solid;
+    border-width: 1px;
 }
 
 .overlay {
@@ -169,6 +201,10 @@ input[name='q']::placeholder {
   }
 }
 
+.mobile-delivery {
+    margin-top: 2rem;
+}
+
 /* Allauth form formatting */
 
 .allauth-form-inner-content p {
@@ -267,6 +303,14 @@ input[name='q']::placeholder {
     }
 }
 
+@media (max-width: 1160px) {
+    .hp-bg {
+        background: url('/media/christmas-background.jpg') no-repeat center center fixed;
+        background-size: 100%;
+        background-position: center 20%;
+    }
+}
+
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
@@ -277,3 +321,6 @@ input[name='q']::placeholder {
         height: calc(100vh - 116px);
     }
 }
+
+
+
