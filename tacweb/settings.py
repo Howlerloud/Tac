@@ -246,10 +246,9 @@ if 'DEVELOPMENT' in os.environ:
     # In development: print emails to the console
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'ajhorsesservice@gmail.com'
-
 else:
-    # In production: use our patched SMTP backend
-    EMAIL_BACKEND = 'tacweb.custom_smtp.NoSSLKeyfileEmailBackend'
+    # In production: use standard Gmail SMTP
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
     EMAIL_USE_TLS = True
     EMAIL_PORT = 587
