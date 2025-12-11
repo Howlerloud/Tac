@@ -261,5 +261,9 @@ else:
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
     DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
+    # Force-disable SSL certificate parameters
+    EMAIL_SSL_KEYFILE = None
+    EMAIL_SSL_CERTFILE = None
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
