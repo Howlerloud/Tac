@@ -1,5 +1,3 @@
-# tacweb/email_backend.py
-
 import smtplib
 from django.core.mail.backends.smtp import EmailBackend
 
@@ -15,7 +13,6 @@ class GmailSSLEmailBackend(EmailBackend):
             return False
 
         try:
-            # IMPORTANT: Do NOT pass keyfile/certfile — Python 3.12 rejects them
             self.connection = smtplib.SMTP_SSL(
                 self.host,
                 self.port,
