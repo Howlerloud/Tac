@@ -17,7 +17,6 @@ class NoSSLKeyfileEmailBackend(EmailBackend):
             pass
 
         if self.use_tls:
-            # This is the FIX → remove SSL keyfile/certfile arguments
             self.connection.starttls()
 
         return True
