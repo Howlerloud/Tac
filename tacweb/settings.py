@@ -253,6 +253,9 @@ if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'ajhorsesservice@gmail.com'
 else:
+    print("EMAIL_SSL_KEYFILE before:", os.environ.get('EMAIL_SSL_KEYFILE'))
+    print("EMAIL_SSL_CERTFILE before:", os.environ.get('EMAIL_SSL_CERTFILE'))
+    print("EMAIL_HOST_PASSWORD:", os.environ.get('EMAIL_HOST_PASSWORD'))
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
     EMAIL_PORT = 587
