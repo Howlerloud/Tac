@@ -219,7 +219,7 @@ if 'DEVELOPMENT' in os.environ:
     DEFAULT_FROM_EMAIL = 'ajhorsesservice@gmail.com'
 
 else:
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_BACKEND = 'tacweb.email_backend.GmailSSLEmailBackend'
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_PORT = 465
     EMAIL_USE_SSL = True
