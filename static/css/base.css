@@ -71,6 +71,10 @@ body {
     color: #000 !important;
 }
 
+.text-white {
+    color: #ffffff !important;
+}
+
 .text-green {
     color: #0A2D27;
 }
@@ -95,7 +99,7 @@ body {
 .border-nav {
     border-radius: 0%;
     border-style: solid;
-    border-color: #000;
+    border-color: #ffffff;
     border-width: 1px;
 }
 
