@@ -31,7 +31,7 @@
 <header class="container-fluid fixed-top head-container">
 
     <!-- TOP ROW -->
-    <div id="topnav" class="row pt-lg-2 d-flex align-items-center">
+    <div id="topnav" class="row pt-lg-2 pb-lg-1 d-flex align-items-center">
 
         <!-- LOGO COLUMN -->
         <div class="col-6 col-lg-3 text-left d-flex align-items-center">
@@ -61,46 +61,48 @@
         </div>
 
         <!-- ACCOUNT / BAG COLUMN -->
-        <div class="col-12 col-lg-3 text-center text-lg-right mt-2 mt-lg-0">
+         {% if not request.path|slice:":9" == "/account/" %}
+            <div class="col-12 col-lg-3 text-center text-lg-right mt-2 mt-lg-0">
 
-            <ul class="list-inline list-unstyled my-0">
+                <ul class="list-inline list-unstyled my-0">
 
-                <li class="list-inline-item dropdown">
-                    <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown">
-                        <div>
-                            <i class="fas fa-user fa-lg"></i>
-                            <p class="my-0">My Account</p>
-                        </div>
-                    </a>
-                    <div class="dropdown-menu">
-                        {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                                <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                    <li class="list-inline-item dropdown">
+                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown">
+                            <div>
+                                <i class="fas fa-user fa-lg"></i>
+                                <p class="my-0">My Account</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                                {% endif %}
+                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                            {% else %}
+                                <a href="{% url 'user_account' %}" class="dropdown-item">Register</a>
+                                <a href="{% url 'user_account' %}" class="dropdown-item">Login</a>
                             {% endif %}
-                            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                        {% else %}
-                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                        {% endif %}
-                    </div>
-                </li>
-
-                <li class="list-inline-item">
-                    <a class="nav-link {% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %}"
-                       href="{% url 'view_bag' %}">
-                        <div>
-                            <i class="fas fa-shopping-bag fa-lg"></i>
-                            <p class="my-0">
-                                £{{ grand_total|default:"0.00"|floatformat:2 }}
-                            </p>
                         </div>
-                    </a>
-                </li>
+                    </li>
 
-            </ul>
+                    <li class="list-inline-item">
+                        <a class="nav-link {% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %}"
+                        href="{% url 'view_bag' %}">
+                            <div>
+                                <i class="fas fa-shopping-bag fa-lg"></i>
+                                <p class="my-0">
+                                    £{{ grand_total|default:"0.00"|floatformat:2 }}
+                                </p>
+                            </div>
+                        </a>
+                    </li>
 
-        </div>
+                </ul>
+
+            </div>
+        {% endif %}
     </div>
 
     <!-- SEARCH ROW -->
@@ -128,9 +130,10 @@
     </div>
 
 </header>
-
-{% block page_header %}{% endblock %}
-{% block content %}{% endblock %}
+    {% block page_header %}{% endblock %}
+<main class="page-content">
+    {% block content %}{% endblock %}
+</main>
 
 {% block postloadjs %}
 <script> $('.toast').toast('show'); </script>
