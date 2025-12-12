@@ -3,16 +3,17 @@ html {
 }
 
 body {
-    height: calc(100vh - 164px);
     color: #555;
     font-family: 'Lato';
-    height: calc(100vh - 164px);
+    background-color: #13594E;
 }
 
 .hp-bg {
     background: url('/media/8.jpg') no-repeat center center fixed;
-    background-size: 100%;
+    background-size: cover;
     background-position: center 20%;
+    min-height: 100vh; /* ensures the background fills space */
+    padding-top: 40px; /* adjusts gap below header */
 }
 
 /* from Bulma */
@@ -74,6 +75,23 @@ body {
     color: #0A2D27;
 }
 
+.text-gld {
+    color: #C89F39;
+}
+
+.clear-link {
+    color: #000;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 1.2rem;
+}
+
+.clear-link:hover {
+    color: #000;
+    text-decoration: underline;
+    padding-left: 2px;
+}
+
 .border-nav {
     border-radius: 0%;
     border-style: solid;
@@ -93,6 +111,16 @@ body {
     border-color: #C89F39;
     border-style: solid;
     border-width: 1px;
+}
+
+.bg-green {
+    background-color: #13594E;
+}
+
+.product-container {
+    border-color: #C89F39;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .overlay {
@@ -305,9 +333,7 @@ input[name='q']::placeholder {
 
 @media (max-width: 1160px) {
     .hp-bg {
-        background: url('/media/christmas-background.jpg') no-repeat center center fixed;
-        background-size: 100%;
-        background-position: center 20%;
+        background-image: url('/media/christmas-background.jpg');
     }
 }
 
@@ -319,6 +345,10 @@ input[name='q']::placeholder {
 
     body {
         height: calc(100vh - 116px);
+    }
+
+    .margin-response {
+        margin-top: 7rem;
     }
 }
 
