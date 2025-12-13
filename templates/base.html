@@ -67,7 +67,7 @@
                 <ul class="list-inline list-unstyled my-0">
 
                     <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown">
+                        <a class="text-gld nav-link" href="#" id="user-options" data-toggle="dropdown">
                             <div>
                                 <i class="fas fa-user fa-lg"></i>
                                 <p class="my-0">My Account</p>
@@ -88,7 +88,7 @@
                     </li>
 
                     <li class="list-inline-item">
-                        <a class="nav-link {% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %}"
+                        <a class="nav-link {% if grand_total %}text-info font-weight-bold{% else %}text-gld{% endif %}"
                         href="{% url 'view_bag' %}">
                             <div>
                                 <i class="fas fa-shopping-bag fa-lg"></i>
@@ -130,6 +130,23 @@
     </div>
 
 </header>
+{% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+            {% with message.level as level %}
+                {% if level == 40 %}
+                    {% include 'includes/toasts/toast_error.html' %}
+                {% elif level == 30 %}
+                    {% include 'includes/toasts/toast_warning.html' %}
+                {% elif level == 25 %}
+                    {% include 'includes/toasts/toast_success.html' %}
+                {% else %}
+                    {% include 'includes/toasts/toast_info.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+    </div>
+{% endif %}
     {% block page_header %}{% endblock %}
 <main class="page-content">
     {% block content %}{% endblock %}
