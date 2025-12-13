@@ -235,6 +235,16 @@ input[name='q']::placeholder {
         typing 3.5s steps(44, end),
         blink 0.75s step-end infinite;
 }
+/* Products view css */
+.table-border {
+    border-color: #0A2D27;
+    border-width: 3px;
+    border-style: solid;
+}
+
+.table-padding {
+    padding-top:10px;
+}
 
 @keyframes typing {
     from { width: 0; }
