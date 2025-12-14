@@ -58,6 +58,10 @@ body {
     color: white;
 }
 
+.sign-out {
+    text-align: center;
+}
+
 .shop-now-button:hover,
 .shop-now-button:active,
 .shop-now-button:focus,
@@ -81,7 +85,7 @@ body {
 }
 
 .text-gld {
-    color: #C89F39;
+    color: #C89F39 !important;
 }
 
 .clear-link {
