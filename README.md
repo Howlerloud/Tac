@@ -9,24 +9,12 @@ The site is designed to be usable, accessible, and maintainable, with admin func
 
 ## User Stories
 
-1. As a first time user I want to be able to create and account to keep track of my orders. This is done with a clear login/register button at the top right of the screen that redirects the user to a singup page.
-2. As a first time user I want to see what products I have in my shopping basket. The website has a small basket updater that shows what products are in your bag when you add an item in the top right or when pressing the basket symbol the user is redirected to a deidcated basket screen.
-3. As a first timer user I want to be notified of any product promotions or deals on. The webpage displays a banner in the top notifying customers of a delivery deal where if they spend £50 they get delivery free.
-4. As a Returing user I want to see my previous orders. Once the user has logged in they have the option to review past orders using the unique order reference.
-5. As a User I want to be able to pay for my products easily. The Webpage features a payment app that allows the user to input their bank details into stripe allowing for ease of pay.
-6. As a User I want to be able to save my address information. The webpage has its very own user details page where the user can save delivery details and will be automatically pulled when paying.
-
-## Index
-
-- [Design](#Design)
-- [Wireframes](#Wireframes)
-- [Features](#features)
-- [Testing](#Testing)
-- [Database Design](#database-design)
-- [Security Features](#security-features)
-- [Testing](#testing)
-- [Deployment](#deployment)
-- [Credits](#credits)
+1. As a first time user I want to be able to create an account and log in to keep track of my orders.
+2. As a first time user I want to see what products I have in my shopping basket. 
+3. As a first timer user I want to be notified of any product promotions or deals on.
+4. As a Returing user I want to see my previous orders. 
+5. As a User I want to be able to pay for my products easily. 
+6. As a User I want to be able to save my address information.
 
 ## Design
 ![Pallete](assets/readme/theme.png)
@@ -34,7 +22,6 @@ The site is designed to be usable, accessible, and maintainable, with admin func
 [Coolers was used for my palette](https://coolors.co/)
 
 I chose a greene theme for my project that has a nice contrasting gold or black text colour depending on the content.
-
 
 ## Wireframes
 [Wireframe.cc was used to create my wireframes]([https://coolors.co/](https://wireframe.cc/))
@@ -142,6 +129,8 @@ Manual Testing is the user/programmer checking code visually and comparing it to
 - Made sure creating an account sends an authetification link to email.
 - Checked Stripe sends webhook and confirms payment
 
+![Webhook](assets/readme/webhook_test.png)
+
 #### When manualy testing these flaws/bugs we're discovered
 
 -Even though page would go through the correct motions using stripe the webhook was not being recieved, this was due to a conflict in packages and was ammened with an updated verion.
@@ -151,6 +140,7 @@ Manual Testing is the user/programmer checking code visually and comparing it to
 #### Future additions
 
 I would like to add a favourites app where the user can view all of their favourite products and be notified by email if they have come on sale.
+I would also like to add a discout coupons section on the checkout page.
 
 ### Automated Testing
 
@@ -178,4 +168,43 @@ Lighthouse was used to test the load times, accessibility and practices. As you 
 I used es lint and Js Hint to validate my javascript
 [JS Hint]([https://coolors.co/](https://jshint.com/))
 ![html-validation](assets/readme/js-country.png)
+
+### User Stories Testing
+
+As a first time user I want to be able to create and account to keep track of my orders. This is done with a clear login/register button at the top right of the screen that redirects the user to a singup page.
+![html-validation](assets/readme/sign-in.png)
+As a first time user I want to see what products I have in my shopping basket. The website has a small basket updater that shows what products are in your bag when you add an item in the top right or when pressing the basket symbol the user is redirected to a deidcated basket screen.
+![html-validation](assets/readme/mini-basket.png)
+As a first timer user I want to be notified of any product promotions or deals on. The webpage displays a banner in the top notifying customers of a delivery deal where if they spend £50 they get delivery free.
+![html-validation](assets/readme/basket.png)
+As a Returing user I want to see my previous orders. Once the user has logged in they have the option to review past orders using the unique order reference.
+![html-validation](assets/readme/profile.png)
+As a User I want to be able to pay for my products easily. The Webpage features a payment app that allows the user to input their bank details into stripe allowing for ease of pay.
+![html-validation](assets/readme/stripe.png)
+As a User I want to be able to save my address information. The webpage has its very own user details page where the user can save delivery details and will be automatically pulled when paying.
+![html-validation](assets/readme/profile.png)
+
+#### How to fork
+
+To fork the Essex Pc's repository:
+
+-Log in (or sign up) to Github.
+-Go to the repository for this project, HTTPS://github.com/Howlerloud/Tac.
+-Click the Fork button in the top right corner.
+
+#### How to Clone
+To clone the Essex-Pc-s repository:
+
+Log in (or sign up) to GitHub.
+-Go to the repository for this project, HTTPS://github.com/Howlerloud/Tac.
+-Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+-Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+-Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+
+#### Credits
+
+-https://www.w3schools.com/js/js_htmldom_css.asp helping with styling of text using js.
+-W3 Schools helped with a lot of js structure.
+-Media used was self taken
+-Code institute
 
