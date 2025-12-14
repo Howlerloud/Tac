@@ -1,21 +1,17 @@
 {% load static %}
-
 <!doctype html>
 <html lang="en">
 <head>
-
     {% block meta %}
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% endblock %}
-
     {% block corecss %}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
-
     {% block corejs %}
         <script src="https://kit.fontawesome.com/e65044661a.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
@@ -25,47 +21,34 @@
 
     <title>Tac {% block extra_title %}{% endblock %}</title>
 </head>
-
-<body>
-
+<body class="bg-green">
 <header class="container-fluid fixed-top head-container">
-
     <!-- TOP ROW -->
     <div id="topnav" class="row pt-lg-2 pb-lg-1 d-flex align-items-center">
-
         <!-- LOGO COLUMN -->
         <div class="col-6 col-lg-3 text-left d-flex align-items-center">
             <a href="{% url 'home' %}" class="nav-link main-logo-link p-0 m-0">
                 <h2 class="logo-font base-tac m-0"><strong>Tac</strong></h2>
             </a>
         </div>
-
         <!-- NAVBAR COLUMN -->
         <div class="col-6 col-lg-6 d-flex justify-content-end justify-content-lg-center">
-
             <nav class="navbar navbar-expand-lg navbar-light w-100 p-0">
-
                 <!-- BURGER BUTTON (MOBILE ONLY) -->
                 <button class="navbar-toggler ml-auto d-lg-none" type="button"
                         data-toggle="collapse" data-target="#main-nav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <!-- NAV MENU (DESKTOP CENTERED) -->
                 <div class="collapse navbar-collapse justify-content-center" id="main-nav">
                     {% include 'includes/main-nav.html' %}
                 </div>
-
             </nav>
-
         </div>
-
         <!-- ACCOUNT / BAG COLUMN -->
          {% if not request.path|slice:":9" == "/account/" %}
             <div class="col-12 col-lg-3 text-center text-lg-right mt-2 mt-lg-0">
-
                 <ul class="list-inline list-unstyled my-0">
-
                     <li class="list-inline-item dropdown">
                         <a class="text-gld nav-link" href="#" id="user-options" data-toggle="dropdown">
                             <div>
@@ -86,7 +69,6 @@
                             {% endif %}
                         </div>
                     </li>
-
                     <li class="list-inline-item">
                         <a class="nav-link {% if grand_total %}text-info font-weight-bold{% else %}text-gld{% endif %}"
                         href="{% url 'view_bag' %}">
@@ -98,13 +80,10 @@
                             </div>
                         </a>
                     </li>
-
                 </ul>
-
             </div>
         {% endif %}
     </div>
-
     <!-- SEARCH ROW -->
     <div class="row justify-content-center pb-3">
         <div class="col-12 col-lg-4">
@@ -121,14 +100,12 @@
             </form>
         </div>
     </div>
-
     <!-- DELIVERY BANNER -->
     <div class="row text-center">
         <div class="col bg-gld text-green bd-gld">
             <h4 class="logo-font my-1">Free Delivery on orders over £{{ free_delivery_threshold }}!</h4>
         </div>
     </div>
-
 </header>
 {% if messages %}
     <div class="message-container">

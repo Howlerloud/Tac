@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-<div class="container header-container">
+<div class="container header-container bg-green">
     <div class="row">
         <div class="col"></div>
     </div>
@@ -64,15 +64,11 @@
                         <div class="card h-100  table-border ">
                             {% if product.image %}
                                 <a href="{% url 'product_detail' product.id %}">
-                                    <img class="card-img-top img-fluid"
-                                         src="{{ product.image.url }}"
-                                         alt="{{ product.name }}">
+                                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.image_alt|default:product.name }}">
                                 </a>
                             {% else %}
-                                <a href="{% url 'product_detail' product.id %}">
-                                    <img class="card-img-top img-fluid"
-                                         src="{{ MEDIA_URL }}noimage.png"
-                                         alt="{{ product.name }}">
+                                <a href="{% url 'product_detail' product.id %}"> 
+                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.image_alt|default:product.name }}">
                                 </a>
                             {% endif %}
                             <div class="card-body pb-0 bg-green">
