@@ -129,7 +129,7 @@ Manual Testing is the user/programmer checking code visually and comparing it to
 - Made sure creating an account sends an authetification link to email.
 - Checked Stripe sends webhook and confirms payment
 
-![Webhook](assets/readme/webhook_test.png)
+![Webhook](assets/readme/webhook_test.jpg)
 
 #### When manualy testing these flaws/bugs we're discovered
 
