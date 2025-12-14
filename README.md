@@ -9,24 +9,12 @@ The site is designed to be usable, accessible, and maintainable, with admin func
 
 ## User Stories
 
-1. As a first time user I want to be able to create and account to keep track of my orders. This is done with a clear login/register button at the top right of the screen that redirects the user to a singup page.
-2. As a first time user I want to see what products I have in my shopping basket. The website has a small basket updater that shows what products are in your bag when you add an item in the top right or when pressing the basket symbol the user is redirected to a deidcated basket screen.
-3. As a first timer user I want to be notified of any product promotions or deals on. The webpage displays a banner in the top notifying customers of a delivery deal where if they spend £50 they get delivery free.
-4. As a Returing user I want to see my previous orders. Once the user has logged in they have the option to review past orders using the unique order reference.
-5. As a User I want to be able to pay for my products easily. The Webpage features a payment app that allows the user to input their bank details into stripe allowing for ease of pay.
-6. As a User I want to be able to save my address information. The webpage has its very own user details page where the user can save delivery details and will be automatically pulled when paying.
-
-## Index
-
-- [Design](#Design)
-- [Wireframes](#Wireframes)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Database Design](#database-design)
-- [Security Features](#security-features)
-- [Testing](#testing)
-- [Deployment](#deployment)
-- [Credits](#credits)
+1. As a first time user I want to be able to create an account and log in to keep track of my orders.
+2. As a first time user I want to see what products I have in my shopping basket. 
+3. As a first timer user I want to be notified of any product promotions or deals on.
+4. As a Returing user I want to see my previous orders. 
+5. As a User I want to be able to pay for my products easily. 
+6. As a User I want to be able to save my address information.
 
 ## Design
 ![Pallete](assets/readme/theme.png)
@@ -34,7 +22,6 @@ The site is designed to be usable, accessible, and maintainable, with admin func
 [Coolers was used for my palette](https://coolors.co/)
 
 I chose a greene theme for my project that has a nice contrasting gold or black text colour depending on the content.
-
 
 ## Wireframes
 [Wireframe.cc was used to create my wireframes]([https://coolors.co/](https://wireframe.cc/))
@@ -109,6 +96,8 @@ Authenticated users can log out via a confirmation page to prevent accidental si
 
 Registered users have access to a profile page where they can view previous orders and saved delivery information.
 
+![Profile](assets/readme/profile.png)
+
 ---
 
 ### Admin Functionality
@@ -120,3 +109,102 @@ Existing products can be edited or deleted, with confirmation prompts in place t
 Administrators can create, update, or remove product categories, allowing the store structure to evolve as new products are added.
 
 An admin-only list view is available to make product management easier, providing a clear overview of all products in a table format.
+
+![Profile](assets/readme/product_management.png)
+
+## Testing
+
+### Manual Testing
+
+Manual Testing is the user/programmer checking code visually and comparing it to the results of the visual product. Check if buttons/links work, making sure code is outputting the correct response.
+
+#### When manually testing was used the following was found
+
+- All Links Work taking you to correct webpage.
+- Tested toast alerts and notifications.
+- Checked resolution sizes and all webpages respond well to screen size.
+- Checked stripe payment, when processing payment button is disabled to stop constant use.
+- Checked admin view compared to normal user view to see if admin functionality works.
+- Checked Adding and removing products from basket.
+- Made sure creating an account sends an authetification link to email.
+- Checked Stripe sends webhook and confirms payment
+
+![Webhook](assets/readme/webhook_test.png)
+
+#### When manualy testing these flaws/bugs we're discovered
+
+-Even though page would go through the correct motions using stripe the webhook was not being recieved, this was due to a conflict in packages and was ammened with an updated verion.
+-The product delete modal had an issue where it wouldnt use the "confirm delete?" and would just delete the product straight away, the modal was ammended to allow for a popup to stop the user befor permenantly deleting the product.
+-Image alt text not updating or being completely empty when changing it in the admin edit page. Added a default value and changed the html to reference the correct data.
+
+#### Future additions
+
+I would like to add a favourites app where the user can view all of their favourite products and be notified by email if they have come on sale.
+I would also like to add a discout coupons section on the checkout page.
+
+### Automated Testing
+
+Automated Testing is the use of external software to check for errors in the code and to highlight them to be addressed.
+
+#### Html
+W3C markup was used to validate my html and as shown it passed. The errors shown are due to django code and not html
+
+![html-validation](assets/readme/html-validation.png)
+
+#### CSS
+
+W3 Jigsaw was used to check the css used in my project and has passed with no issues.
+
+![html-validation](assets/readme/css-validation.png)
+
+#### Lighthouse
+
+Lighthouse was used to test the load times, accessibility and practices. As you can see it passed with a slight weakness in performance but still acceptable.
+
+![html-validation](assets/readme/css-validation.png)
+
+#### Java Script
+
+I used es lint and Js Hint to validate my javascript
+[JS Hint]([https://coolors.co/](https://jshint.com/))
+![html-validation](assets/readme/js-country.png)
+
+### User Stories Testing
+
+As a first time user I want to be able to create and account to keep track of my orders. This is done with a clear login/register button at the top right of the screen that redirects the user to a singup page.
+![html-validation](assets/readme/sign-in.png)
+As a first time user I want to see what products I have in my shopping basket. The website has a small basket updater that shows what products are in your bag when you add an item in the top right or when pressing the basket symbol the user is redirected to a deidcated basket screen.
+![html-validation](assets/readme/mini-basket.png)
+As a first timer user I want to be notified of any product promotions or deals on. The webpage displays a banner in the top notifying customers of a delivery deal where if they spend £50 they get delivery free.
+![html-validation](assets/readme/basket.png)
+As a Returing user I want to see my previous orders. Once the user has logged in they have the option to review past orders using the unique order reference.
+![html-validation](assets/readme/profile.png)
+As a User I want to be able to pay for my products easily. The Webpage features a payment app that allows the user to input their bank details into stripe allowing for ease of pay.
+![html-validation](assets/readme/stripe.png)
+As a User I want to be able to save my address information. The webpage has its very own user details page where the user can save delivery details and will be automatically pulled when paying.
+![html-validation](assets/readme/profile.png)
+
+#### How to fork
+
+To fork the Essex Pc's repository:
+
+-Log in (or sign up) to Github.
+-Go to the repository for this project, HTTPS://github.com/Howlerloud/Tac.
+-Click the Fork button in the top right corner.
+
+#### How to Clone
+To clone the Essex-Pc-s repository:
+
+Log in (or sign up) to GitHub.
+-Go to the repository for this project, HTTPS://github.com/Howlerloud/Tac.
+-Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+-Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+-Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+
+#### Credits
+
+-https://www.w3schools.com/js/js_htmldom_css.asp helping with styling of text using js.
+-W3 Schools helped with a lot of js structure.
+-Media used was self taken
+-Code institute
+
