@@ -6,7 +6,7 @@
     <div class="container header-container bg-green">
         <div class="row">
             <div class="col mt-3">
-                <h3>Don't Forget to leave us a review on google!</h2>
+                <h3 class="text-gld">Don't Forget to leave us a review on google!</h2>
             </div>
         </div>
     </div>
@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">Shopping Bag</h2>
+                <h2 class="logo-font mb-4 text-gld">Shopping Bag</h2>
                 <hr>
             </div>
         </div>
@@ -31,13 +31,11 @@
                             <thead class="text-black">
                                 <tr>
                                     <th scope="col">Product Info</th>
-                                    <th scope="col"></th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Qty</th>
                                     <th scope="col">Subtotal</th>
                                 </tr>
                             </thead>
-
                             {% for item in bag_items %}
                                 <tr>
                                     <td class="p-3 w-25">
@@ -47,13 +45,13 @@
                                         <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
                                         {% endif %}
                                     </td>
-                                    <td class="py-3">
+                                    <td class="py-3 text-black">
                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                                         <p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
-                                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                                        <p class="my-0 small text-black">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">${{ item.product.price }}</p>
+                                        <p class="my-0 text-black">${{ item.product.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
                                         <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
@@ -90,12 +88,12 @@
                                         <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                        <p class="my-0 text-black">${{ item.product.price | calc_subtotal:item.quantity }}</p>
                                     </td>
                                 </tr>
                             {% endfor %}
                             <tr>
-                                <td colspan="5" class="pt-5 text-right">
+                                <td colspan="5" class="pt-5 text-right text-black">
                                     <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
                                     <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
                                     <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
@@ -103,6 +101,8 @@
                                         <p class="mb-1 text-danger">
                                             You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
                                         </p>
+                                        {% else %}
+                                            <p class="mb-1 text-gld">Free Delivery threshold reached!</p>
                                     {% endif %}
                                 </td>
                             </tr>
@@ -112,7 +112,7 @@
                                         <span class="icon">
                                             <i class="fas fa-chevron-left"></i>
                                         </span>
-                                        <span class="text-uppercase">Keep Shopping</span>
+                                        <span class="text-uppercase text-gld">Keep Shopping</span>
                                     </a>
                                     <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
                                         <span class="text-uppercase">Secure Checkout</span>
