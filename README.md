@@ -196,15 +196,15 @@ To fork the Essex Pc's repository:
 To clone the Essex-Pc-s repository:
 
 Log in (or sign up) to GitHub.
--Go to the repository for this project, HTTPS://github.com/Howlerloud/Tac.
--Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
--Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
--Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+- Go to the repository for this project, HTTPS://github.com/Howlerloud/Tac.
+- Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+- Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+- Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
 
 #### Credits
 
--https://www.w3schools.com/js/js_htmldom_css.asp helping with styling of text using js.
--W3 Schools helped with a lot of js structure.
--Media used was self taken
--Code institute
+- https://www.w3schools.com/js/js_htmldom_css.asp helping with styling of text using js.
+- W3 Schools helped with a lot of js structure.
+- Media used was self taken
+- Code institute
 
