@@ -166,7 +166,7 @@ Lighthouse was used to test the load times, accessibility and practices. As you 
 #### Java Script
 
 I used es lint and Js Hint to validate my javascript
-[JS Hint]([https://coolors.co/](https://jshint.com/))
+[JS Hint](https://jshint.com/)
 ![html-validation](assets/readme/js-country.png)
 
 ### User Stories Testing
