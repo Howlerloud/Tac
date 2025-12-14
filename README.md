@@ -21,7 +21,7 @@ The site is designed to be usable, accessible, and maintainable, with admin func
 - [Design](#Design)
 - [Wireframes](#Wireframes)
 - [Features](#features)
-- [Technologies Used](#technologies-used)
+- [Testing](#Testing)
 - [Database Design](#database-design)
 - [Security Features](#security-features)
 - [Testing](#testing)
@@ -109,6 +109,8 @@ Authenticated users can log out via a confirmation page to prevent accidental si
 
 Registered users have access to a profile page where they can view previous orders and saved delivery information.
 
+![Profile](assets/readme/profile.png)
+
 ---
 
 ### Admin Functionality
@@ -120,3 +122,60 @@ Existing products can be edited or deleted, with confirmation prompts in place t
 Administrators can create, update, or remove product categories, allowing the store structure to evolve as new products are added.
 
 An admin-only list view is available to make product management easier, providing a clear overview of all products in a table format.
+
+![Profile](assets/readme/product_management.png)
+
+## Testing
+
+### Manual Testing
+
+Manual Testing is the user/programmer checking code visually and comparing it to the results of the visual product. Check if buttons/links work, making sure code is outputting the correct response.
+
+#### When manually testing was used the following was found
+
+- All Links Work taking you to correct webpage.
+- Tested toast alerts and notifications.
+- Checked resolution sizes and all webpages respond well to screen size.
+- Checked stripe payment, when processing payment button is disabled to stop constant use.
+- Checked admin view compared to normal user view to see if admin functionality works.
+- Checked Adding and removing products from basket.
+- Made sure creating an account sends an authetification link to email.
+- Checked Stripe sends webhook and confirms payment
+
+#### When manualy testing these flaws/bugs we're discovered
+
+-Even though page would go through the correct motions using stripe the webhook was not being recieved, this was due to a conflict in packages and was ammened with an updated verion.
+-The product delete modal had an issue where it wouldnt use the "confirm delete?" and would just delete the product straight away, the modal was ammended to allow for a popup to stop the user befor permenantly deleting the product.
+-Image alt text not updating or being completely empty when changing it in the admin edit page. Added a default value and changed the html to reference the correct data.
+
+#### Future additions
+
+I would like to add a favourites app where the user can view all of their favourite products and be notified by email if they have come on sale.
+
+### Automated Testing
+
+Automated Testing is the use of external software to check for errors in the code and to highlight them to be addressed.
+
+#### Html
+W3C markup was used to validate my html and as shown it passed. The errors shown are due to django code and not html
+
+![html-validation](assets/readme/html-validation.png)
+
+#### CSS
+
+W3 Jigsaw was used to check the css used in my project and has passed with no issues.
+
+![html-validation](assets/readme/css-validation.png)
+
+#### Lighthouse
+
+Lighthouse was used to test the load times, accessibility and practices. As you can see it passed with a slight weakness in performance but still acceptable.
+
+![html-validation](assets/readme/css-validation.png)
+
+#### Java Script
+
+I used es lint and Js Hint to validate my javascript
+[JS Hint]([https://coolors.co/](https://jshint.com/))
+![html-validation](assets/readme/js-country.png)
+
