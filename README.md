@@ -170,6 +170,14 @@ I used es lint and Js Hint to validate my javascript
 [JS Hint](https://jshint.com/)
 ![html-validation](assets/readme/js-country.png)
 
+#### Git
+
+Github notified me that some of my secret/gitignore files we're visable to the frontend due to cached data.
+The data was forcably removed and secret keys got rotated for security measures.
+After this functions using secrets got re-tested and checked for functionality.
+![html-validation](assets/readme/stripe_updated_success.png)
+
+
 ### User Stories Testing
 
 As a first time user I want to be able to create and account to keep track of my orders. This is done with a clear login/register button at the top right of the screen that redirects the user to a singup page.
@@ -184,6 +192,70 @@ As a User I want to be able to pay for my products easily. The Webpage features 
 ![html-validation](assets/readme/stripe.png)
 As a User I want to be able to save my address information. The webpage has its very own user details page where the user can save delivery details and will be automatically pulled when paying.
 ![html-validation](assets/readme/profile.png)
+
+#### Deployment
+
+The project is deployed using heroku and has it's product enviroment managed by it.
+
+#### Database
+
+The project uses PostgreSQL for the database, configured through Heroku.
+
+#### Environment Variables
+
+Current variables are as follows
+
+![html-validation](assets/readme/environment_variables.png)
+
+#### Stripe
+
+Stripe was used to handle the payment/checkout page.
+As seen above STRIPE_PUBLIC_KEY, STRIPE_SECRET_KEY, STRIPE_WH_SECRET are used to configure the secure payment.
+
+#### AWS
+
+AWS S3 was used to host my media files
+
+-Creating an S3 bucket
+-Setting bucket permissions and CORS configuration
+-Connecting Django to AWS
+-Using environment variables for AWS credentials
+
+This allowed me to store and serve media files including css,js and images in production.
+
+![html-validation](assets/readme/aws_bucket.png)
+![html-validation](assets/readme/webhook_creation.png)
+
+#### Deployment Steps
+
+To deploy locally or to Heroku:
+
+Install dependencies:
+pip install -r requirements.txt
+Run migrations:
+python manage.py migrate
+Collect static files:
+python manage.py collectstatic
+Create a superuser:
+python manage.py createsuperuser
+Push to GitHub and connect repository to Heroku.
+Set environment variables in Heroku Config Vars.
+Deploy the application.
+
+#### Final Deployed Checks
+
+The following checks were completed after deployment:
+
+Verified successful Heroku build
+Confirmed PostgreSQL database connection
+Checked AWS S3 static and media file delivery
+Tested Stripe payments successfully
+Verified Stripe webhook responses
+Confirmed account registration and login functionality
+Checked admin product management
+Tested product CRUD functionality
+Verified responsive design across devices
+Ran final manual testing on all major user journeys
 
 #### How to fork
 
